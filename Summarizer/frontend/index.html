@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legal Document Intelligence Suite</title>
+    <link rel="stylesheet" href="style.css" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>📘 Legal AI Suite</h2>
+    <nav>
+      <ul>
+        <li><a href="#uploadSection" class="active">📄 Upload</a></li>
+        <li><a href="#summarizeSection">🧠 Summarize</a></li>
+        <li><a href="#chatSection">💬 Chatbot</a></li>
+        <li><a href="#aboutSection">ℹ️ About</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header>
+      <h1>Legal Document Intelligence</h1>
+      <p>AI-powered PDF summarization and contextual chatbot for legal professionals</p>
+    </header>
+
+    <!-- Upload Section -->
+    <section id="uploadSection" class="card">
+      <h2>📄 Upload & Extract</h2>
+      <input type="file" id="fileInput" accept=".pdf" />
+      <button id="uploadBtn">Upload & Extract</button>
+      <p id="uploadStatus" class="status-text"></p>
+
+      <textarea id="extractedText" placeholder="Extracted text will appear here..."></textarea>
+    </section>
+
+    <!-- Summarize Section -->
+    <section id="summarizeSection" class="card">
+    <h2>🧠 Summarization & Analysis</h2>
+    
+    <div class="model-select">
+        <label for="modelSelect">Choose Model:</label>
+        <select id="modelSelect">
+            <option value="bart">BART (Local)</option>
+            <option value="t5">T5 (Local)</option>
+            <option value="gemini-2.5-pro">Gemini 2.5 Pro (Cloud)</option>
+        </select>
+    </div>
+    
+    <button id="summarizeBtn">Generate Summary</button>
+    <button id="compareAllBtn" style="margin-left: 10px;">📊 Compare All Models</button>
+    
+    <div id="loading" class="loading hidden">⏳ Processing...</div>
+    
+    <div class="result">
+        <h3>Summary</h3>
+        <pre id="summaryOutput"></pre>
+        <div id="singleModelMetrics"></div> 
+    </div>
+    </section>
+
+    <section id="analyzerSection" class="card hidden">
+      <h2>📊 Model Comparison Dashboard</h2>
+        <div class="chart-container">
+          <canvas id="comparisonChart"></canvas>
+        </div>
+      <div id="comparisonTable"></div> 
+    </section>
+
+    
+
+    <!-- Chatbot Section -->
+    <section id="chatSection" class="card">
+      <h2>💬 Legal Assistant Chatbot</h2>
+      <div class="chat-box">
+        <input type="text" id="chatInput" placeholder="Ask about your document..." />
+        <button id="chatBtn">Send</button>
+      </div>
+      <pre id="chatResponse"></pre>
+    </section>
+
+    <!-- About Section -->
+    <section id="aboutSection" class="card">
+      <h2>ℹ️ About This Tool</h2>
+      <p>
+        This Legal AI Suite helps you upload, extract, and summarize long legal PDFs instantly using both local and cloud AI models.
+        You can then interact with an AI chatbot that understands your uploaded data — ideal for lawyers, paralegals, and researchers.
+      </p>
+      <p><b>Developed using Flask, Gemini API, and HuggingFace models.</b></p>
+    </section>
+  </main>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>

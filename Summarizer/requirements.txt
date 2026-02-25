@@ -1,0 +1,11 @@
+flask
+flask-cors
+pdfplumber
+python-docx
+transformers
+torch
+sentence-transformers
+google-generativeai
+numpy
+rouge-score
+nltk 
